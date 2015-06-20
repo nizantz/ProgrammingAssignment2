@@ -2,22 +2,14 @@
 ## functions do
 ## The program takes a square matrix and returns an inverse of the input square matrix.
 ## The program does not check if the input square matrix is exactly singular.
-## Write a short comment describing this function
 
-##Sample Test Case##
-#mat1 <- makeCacheMatrix(c(1,0,1,1),2,2)
-#cacheSolve(mat1)
-##output##
-#       [,1] [,2]
-# [1,]    1   -1
-# [2,]    0    1
-#
-#cacheSolve(mat1)
-##output##
-#getting cached data
-#       [,1] [,2]
-# [1,]    1   -1
-# [2,]    0    1
+## Write a short comment describing this function
+## makeCacheMatrix function that returns a list of functionsto store a matrix and a cached value of the inverse of the 
+## input matrix. Contains the following functions: 
+# "set" sets the value of a matrix 
+# "get" gets of a matrix 
+# "setinverse" sets the inverse of the input matrix
+# "getInverse" gets the inverse of the input matrix
 
 makeCacheMatrix <- function(x = matrix()) {
     m <- NULL
@@ -32,7 +24,6 @@ makeCacheMatrix <- function(x = matrix()) {
           setinverse = setinverse,
           getinverse = getinverse)
 }
-
 
 ## Write a short comment describing this function
 ##The function below checks if an inverse of input matrix already exists. 
@@ -51,8 +42,23 @@ cacheSolve <- function(x, ...) {
     x$setinverse(m)
     m
 }
-##More test case
+
+##Sample Test Case##
 # > source("cachematrix.R")
+###Test1###
+# > c1 <- matrix(c(1,0,1,1),2,2)
+# > mat1 <- makeCacheMatrix(c1)
+# > cacheSolve(mat1)
+# [,1] [,2]
+# [1,]    1   -1
+# [2,]    0    1
+# > cacheSolve(mat1)
+# getting cached data
+# [,1] [,2]
+# [1,]    1   -1
+# [2,]    0    1
+
+###Test2###
 # > d1<-matrix(c(4,1,7,2,7,3,8,4,5),3,3)
 # > d1
 # [,1] [,2] [,3]
